@@ -7,5 +7,45 @@ var Schema = Mongoose.Schema;
 var userSchema = new Schema({
 	email: {type: String, required: true, unique: true},
 	password: {type: String, required: true},
-	kind: {type: String, enum: ['Creator', 'Fan']}
+	// kind: {type: String, enum: ['Creator', 'Fan']}
 });
+
+userSchema.pre('save', function(next) {
+	var user = this;
+	var progress = function() {
+		console.log("Progress yo");
+	}
+	// console.log("00000001");
+	if(!user.isModified('password')) {
+		return next();
+	}
+	// console.log("00000002");
+	Bcrypt.genSalt(12, function(err, salt) {
+		// console.log("00000003");
+		if (err) {
+			return next(err);
+		}
+		// console.log("00000004");
+		Bcrypt.hash(user.password, salt, progress, function(err, hash) {
+			// console.log("00000005");
+			user.password = hash;
+			return next();
+		});
+	});
+});
+
+userSchema.methods.comparePassword = function(pass) {
+	var deferred = Q.defer();
+	Bcrypt.compare(pass, this.password, function(err, isMatch) {
+		if(err) {
+			deferred.reject(err);
+		}
+		else {
+			deferred.resolve(isMatch);
+		}
+	});
+	return deferred.promise;
+};
+
+module.exports = Mongoose.model('User', userSchema);
+

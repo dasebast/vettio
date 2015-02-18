@@ -7,6 +7,8 @@ var Mongoose = require('mongoose');
 var Passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+var User = require('./server-assets/models/user');
+
 // ============================ CONTROLLERS ===========================
 
 
@@ -18,6 +20,7 @@ Passport.use(new LocalStrategy({
 	usernameField: 'email',
 	passwordField: 'password'
 }, function(username, password, done) {     // How all does this work?
+	// console.log(username, password);
 	User.findOne({email: username}).exec().then(function(user) {
 		if(!user) {
 			return done(null, false, {message: 'Incorrect username.'});
@@ -35,7 +38,7 @@ Passport.serializeUser(function(user, done) {
 	done(null, user);
 });
 
-Passport.deserializeUser(function(user, done) {
+Passport.deserializeUser(function(obj, done) {
 	done(null, obj);
 });
 	// +++ END Passport -- Configure +++
@@ -73,7 +76,9 @@ var isAuthed = function(req, res, next) {
 
 
 // ============================ ENDPOINTS =============================
-
+App.get('/api/test', isAuthed, function(req, res) {
+	res.status(200).json("endpt worked");
+});
 
 
 // CONNECTIONS ===========================
