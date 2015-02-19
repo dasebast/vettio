@@ -67,6 +67,7 @@ App.post('/api/register', function(req, res) {
 });
 
 var isAuthed = function(req, res, next) {
+	console.log(req.isAuthenticated());
 	if(!req.isAuthenticated()) {
 		return res.status(403).end();
 	}
@@ -77,10 +78,14 @@ var isAuthed = function(req, res, next) {
 
 // ============================ ENDPOINTS =============================
 App.get('/api/test', isAuthed, function(req, res) {
+	
 	res.status(200).json("endpt worked");
 });
 
-
+App.get("/api/getUserData/:id", isAuthed, function(req, res){
+	console.log(req.params.id);
+	//User model to find user and compare logged in user with found user
+})
 // CONNECTIONS ===========================
 Mongoose.connect('mongodb://localhost:27017/vettio');
 App.listen(9009);
