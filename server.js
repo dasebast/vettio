@@ -79,10 +79,10 @@ var isAuthed = function(req, res, next) {
 
 
 // ============================ ENDPOINTS =============================
-App.get('/api/test', isAuthed, function(req, res) {
-	console.log(req.user);
-	res.status(200).json("endpt worked");
-});
+// App.get('/api/test', isAuthed, function(req, res) {
+// 	console.log(req.user);
+// 	res.status(200).json("endpt worked");
+// });
 
 App.get("/api/getUserData/:id", isAuthed, function(req, res){
 	console.log(req.params.id);
@@ -91,7 +91,10 @@ App.get("/api/getUserData/:id", isAuthed, function(req, res){
 	//req.user.<id> 
 });
 
-App.post("/api/postUserPin", isAuthed, PinCtrl.create);
+// App.get("/api/pins", isAuthed, PinCtrl.list);
+App.post("/api/pins", PinCtrl.create); // Auth is breaking stuff. **************
+// App.put("/api/pins/:id", isAuthed, PinCtrl.edit);
+
 
 
 // CONNECTIONS ===========================

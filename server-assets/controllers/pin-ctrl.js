@@ -7,8 +7,9 @@ module.exports = {
 		});
 	},
 	create: function(req, res) {
+		console.log("hello");
 		var newPin = new Pin(req.body);
-		newPin.owner = req.user._id;
+		// newPin.owner = req.user._id;
 		newPin.save(function(err, pin) {
 			if(err) {
 				return res.status(500).end();
@@ -17,12 +18,12 @@ module.exports = {
 		});
 	},
 	edit: function(req, res) {
-		Pin.update({ _id: req.params.id }, req.body).exec(
-			function(err) {
+		Pin.update({ _id: req.params.id }, req.body).exec(function(err) {
 				return res.status(200).end();
 			});
 	}
 };
+
 
 
 
