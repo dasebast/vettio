@@ -8,6 +8,8 @@ var Passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('./server-assets/models/user');
+var Pin = require('./server-assets/models/pin')
+var PinCtrl = require('./server-assets/controllers/pin-ctrl')
 
 // ============================ CONTROLLERS ===========================
 
@@ -78,14 +80,20 @@ var isAuthed = function(req, res, next) {
 
 // ============================ ENDPOINTS =============================
 App.get('/api/test', isAuthed, function(req, res) {
-	
+	console.log(req.user);
 	res.status(200).json("endpt worked");
 });
 
 App.get("/api/getUserData/:id", isAuthed, function(req, res){
 	console.log(req.params.id);
 	//User model to find user and compare logged in user with found user
-})
+	//coma[pre logged in user name to user i just pulled up and see if they are the same]
+	//req.user.<id> 
+});
+
+App.post("/api/postUserPin", isAuthed, PinCtrl.create);
+
+
 // CONNECTIONS ===========================
 Mongoose.connect('mongodb://localhost:27017/vettio');
 App.listen(9009);

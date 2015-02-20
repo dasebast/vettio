@@ -12,10 +12,7 @@ var userSchema = new Schema({
 
 userSchema.pre('save', function(next) {
 	var user = this;
-	var progress = function() {
-		console.log("Progress yo");
-	}
-	// console.log("00000001");
+		// console.log("00000001");
 	if(!user.isModified('password')) {
 		return next();
 	}
@@ -26,7 +23,7 @@ userSchema.pre('save', function(next) {
 			return next(err);
 		}
 		// console.log("00000004");
-		Bcrypt.hash(user.password, salt, progress, function(err, hash) {
+		Bcrypt.hash(user.password, salt, null, function(err, hash) {
 			// console.log("00000005");
 			user.password = hash;
 			return next();
