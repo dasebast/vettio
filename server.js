@@ -92,7 +92,7 @@ App.get("/api/getUserData/:id", isAuthed, function(req, res){
 });
 
 // App.get("/api/pins", isAuthed, PinCtrl.list);
-App.post("/api/pins", PinCtrl.create); // Auth is breaking stuff. **************
+App.post("/api/pins", PinCtrl.create); // Wait till frontend done for isAuthed **************
 // App.put("/api/pins/:id", isAuthed, PinCtrl.edit);
 
 
