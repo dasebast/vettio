@@ -17,8 +17,8 @@ var pinSchema = new Schema({
 module.exports = Mongoose.model('Pin', pinSchema);
 
 // {
-// 	"name": "product",
-// 	"image": "imgur",
+// 	"name": "product222",
+// 	"image": "imgur22",
 // 	"affiliate": "amazon",
 // 	"blurb": "best ever",
 // 	"coupon": "dealio",

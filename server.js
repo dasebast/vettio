@@ -91,7 +91,7 @@ App.get("/api/getUserData/:id", isAuthed, function(req, res){
 	//req.user.<id> 
 });
 
-// App.get("/api/pins", isAuthed, PinCtrl.list);
+App.get("/api/pins", PinCtrl.list);
 App.post("/api/pins", PinCtrl.create); // Wait till frontend done for isAuthed **************
 // App.put("/api/pins/:id", isAuthed, PinCtrl.edit);
 

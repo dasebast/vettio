@@ -2,12 +2,13 @@ var Pin = require('./../models/pin');
 
 module.exports = {
 	list: function(req, res) {
-		Pin.find({ user: req.user._id }).exec().then(function(pins) {
+		// console.log(req.user);
+		Pin.find({ owner: req.user._id }).exec().then(function(pins) {
 			return res.json(pins);
 		});
 	},
 	create: function(req, res) {
-		console.log("hello");
+		console.log("hello10");
 		var newPin = new Pin(req.body);
 		// newPin.owner = req.user._id;
 		newPin.save(function(err, pin) {
