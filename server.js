@@ -77,7 +77,6 @@ var isAuthed = function(req, res, next) {
 };
 
 
-
 // ============================ ENDPOINTS =============================
 // App.get('/api/test', isAuthed, function(req, res) {
 // 	console.log(req.user);
