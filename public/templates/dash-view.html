@@ -1,10 +1,72 @@
+
+
 {{dash}}
 
 
-<button ng-click=getPins()>get pins</button>
 <!-- <button ng-click=makePin()>make a pin</button> -->
 
-<div ng-repeat="pin in pins">{{pin.image}}</div>
+<!-- <div ng-repeat="pin in pins">{{pin.image}}</div> -->
+
+<pin-maker></pin-maker>
 
 
-<!-- <pin-maker bob="{{hunger}}"></pin-maker> -->
+<button class="btn btn-info">make new pin</button>
+
+<form class="form-horizontal" ng-submit="addPin()">
+	<div class="form-group">
+		<label for="name" class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-10">	
+			<input type="text" class="form-control" id="name" placeholder="Name" ng-model="pinForm.name">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="image" class="col-sm-2 control-label">Image Link</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="image" placeholder="Image Link" ng-model="pinForm.image">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="affiliate" class="col-sm-2 control-label">Affiliate Link</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="affiliate" placeholder="Affiliate Link" ng-model="pinForm.affiliate">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="blurb" class="col-sm-2 control-label">Blurb</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="blurb" placeholder="Blurb" ng-model="pinForm.blurb">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="coupon" class="col-sm-2 control-label">Coupon Code</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="coupon" placeholder="Coupon Code" ng-model="pinForm.coupon">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="tags" class="col-sm-2 control-label">Tags</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" id="tags" placeholder="#Tags" ng-model="pinForm.tags">
+		</div>
+	</div>
+<!-- 	<div class="form-group">
+		<label for="rating" class="col-sm-2 control-label">Rating</label>
+		<div class="col-sm-10">
+			<div class="dropdown">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+			    Rating
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			    <li role="presentation"><p role="menuitem" tabindex="-1">1</p></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1">Another action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1">Something else here</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1">Separated link</a></li>
+			  </ul>
+			</div>
+		</div>
+	</div> -->
+
+	<button type="submit" class="btn btn-warning">Add your pin!</button>
+
+</form>

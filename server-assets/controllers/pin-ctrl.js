@@ -9,10 +9,12 @@ module.exports = {
 	},
 	create: function(req, res) {
 		console.log("hello10");
+		req.body.owner = req.user._id;
 		var newPin = new Pin(req.body);
 		// newPin.owner = req.user._id;
 		newPin.save(function(err, pin) {
 			if(err) {
+				console.log(err);
 				return res.status(500).end();
 			}
 			return res.json(pin);

@@ -1,7 +1,18 @@
+<div ng-controller="DashCtrl">
+
+
+	<button class="btn btn-success" ng-click=getPins()>get pins</button>
+
+	<div class="container" ng-repeat="pin in pins">
+		<h4>Name: {{pin.name}}</h4>
+		<h4>Image: {{pin.image}}</h4>
+		<h4>Blurb: {{pin.blurb}}</h4>
+		<h4>Rating: {{pin.rating}}</h4>
+	</div>
+
+
+</div>
 
 
 
-
-
-<!-- <h4>kappa {{bob}}</h4> -->
-
+<!-- when do i need to immediately invoke a directive -->
