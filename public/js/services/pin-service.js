@@ -18,7 +18,10 @@ App.service('pinService', function($http, $q) {
 			var dfd = $q.defer();
 			$http.get('/api/pins').then(function(response) {
 				console.log("00002");			
-				dfd.resolve(response.data);
+				dfd.resolve(response.data.reverse());
+			}, function(err) {
+				console.log(err);
+				dfd.reject(err);
 			});
 			return dfd.promise;
 		};	
@@ -30,7 +33,7 @@ App.service('pinService', function($http, $q) {
 				url: "/api/pins",
 				data: info
 			}).then(function(response) {
-				console.log(response + "eeeeeeeeeeeee");
+				// console.log(response + "eeeeeeeeeeeee");
 				dfd.resolve(response.data);
 			}, function(err) {
 				dfd.reject(err);

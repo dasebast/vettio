@@ -1,6 +1,6 @@
 var App = angular.module('vettio');
 
-App.controller('DashCtrl', function($scope, pinService) {
+App.controller('DashCtrl', function($scope, $timeout, pinService) {
 	
 	$scope.dash = "this is the dash view";
 
@@ -10,13 +10,13 @@ App.controller('DashCtrl', function($scope, pinService) {
 	$scope.getPins = function() {
 		console.log("pinssss");
 		pinService.getPins().then(function(res) {
-			$scope.pins = res.reverse();
-			console.log($scope.pins);
+			$scope.pins = res;
+			console.log($scope.pins.length);
 		});
 	};
 
 	$scope.addPin = function() {
-		console.log($scope.pinForm);
+		// console.log($scope.pinForm);
 		pinService.addPin($scope.pinForm).then(function(response) {
 			console.log("why not working");
 			$scope.getPins();

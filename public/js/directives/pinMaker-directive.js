@@ -3,8 +3,14 @@ var App = angular.module('vettio');
 App.directive('pinMaker', function() {
 	return {
 		restrict: 'E',
+		scope: {
+			pins: '=' //bind to variable on parent controller, its dynamic, changes
+		},
 		link: function(scope, elem, attrs) {
 			
+			
+		},
+		controller: function($scope){
 		},
 		templateUrl: "templates/pinMaker-directive-view.html"
 
