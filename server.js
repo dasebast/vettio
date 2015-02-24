@@ -8,8 +8,8 @@ var Passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('./server-assets/models/user');
-var Pin = require('./server-assets/models/pin')
-var PinCtrl = require('./server-assets/controllers/pin-ctrl')
+var Pin = require('./server-assets/models/pin');
+var PinCtrl = require('./server-assets/controllers/pin-ctrl');
 
 // ============================ CONTROLLERS ===========================
 
@@ -32,7 +32,7 @@ Passport.use(new LocalStrategy({
 				return done(null, false, {message: 'Incorrect password.'});
 			}
 			return done(null, user);
-		})
+		});
 	});
 }));
 

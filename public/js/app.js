@@ -14,7 +14,7 @@ App.config(function($routeProvider) {
 		// 		return AuthService.getUser($route.current.params.id)
 		// 	}
 		// }
-	}).
+	})
 	// when('/:username', {
 					// check nbaroutes
 	// })
