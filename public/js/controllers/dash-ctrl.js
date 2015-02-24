@@ -4,8 +4,6 @@ App.controller('DashCtrl', function($scope, $timeout, pinService) {
 	
 	$scope.dash = "this is the dash view";
 
-	$scope.hunger = "i am hungry";
-
 
 	$scope.getPins = function() {
 		console.log("pinssss");
@@ -18,7 +16,14 @@ App.controller('DashCtrl', function($scope, $timeout, pinService) {
 	$scope.addPin = function() {
 		// console.log($scope.pinForm);
 		pinService.addPin($scope.pinForm).then(function(response) {
-			console.log("why not working");
+			// reset form fields after submission
+			$scope.pinForm.name = '';
+			$scope.pinForm.image = '';
+			$scope.pinForm.affiliate = '';
+			$scope.pinForm.blurb = '';
+			$scope.pinForm.coupon = '';
+			$scope.pinForm.tags = '';
+			// refresh current pins list
 			$scope.getPins();
 		});
 	};

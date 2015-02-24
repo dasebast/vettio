@@ -7,8 +7,12 @@ var Schema = Mongoose.Schema;
 var userSchema = new Schema({
 	email: {type: String, required: true, unique: true},
 	password: {type: String, required: true},
-	name: {type: String, required: true, unique: true}
-	// kind: {type: String, enum: ['Creator', 'Fan']}
+	username: {type: String, required: true, unique: true},
+	dateCreated: {type: Date, default: Date.now}
+	// socialLinks: [{}]
+	// socialGit: 
+	// socialFacebook:
+	// socialTwitter:	
 });
 
 userSchema.pre('save', function(next) {

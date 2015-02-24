@@ -15,6 +15,10 @@ App.config(function($routeProvider) {
 		// 	}
 		// }
 	})
+	// .when('/:username', {
+	// 	templateUrl: 'templates/public-view',
+	// 	controller: 'PublicCtrl'
+	// })
 	// when('/:username', {
 					// check nbaroutes
 	// })

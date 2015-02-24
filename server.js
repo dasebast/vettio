@@ -83,8 +83,12 @@ var isAuthed = function(req, res, next) {
 // 	res.status(200).json("endpt worked");
 // });
 
-App.get("/api/getUserData/:id", isAuthed, function(req, res){
-	console.log(req.params.id);
+App.get("/api/getLoggedInUser/", isAuthed, function(req, res){
+	User.findById(req.user._id).select('-password').exec().then(function(user){
+		res.status(200).json(user);
+	}, function(err){
+		res.status(500).json(err);
+	})
 	//User model to find user and compare logged in user with found user
 	//coma[pre logged in user name to user i just pulled up and see if they are the same]
 	//req.user.<id> 

@@ -2,14 +2,14 @@ var App = angular.module('vettio');
 
 App.service('AuthService', function($q, $http) {
 
-	this.login = function(email, password) {
+	this.login = function(newUser) {
 		var dfd = $q.defer();
 		$http({
 			method: 'POST',
 			url: '/api/auth',
 			data: {
-				email: email,
-				password: password
+				email: newUser.email,
+				password: newUser.password
 			}
 		}).then(function(response) {
 			dfd.resolve(response.data);
@@ -21,15 +21,12 @@ App.service('AuthService', function($q, $http) {
 	};
 
 
-	this.register = function(email,  password) {
+	this.register = function(newUser) {
 		var dfd = $q.defer();
 		$http({
 			method: 'POST',
 			url: '/api/register',
-			data: {
-				email: email,
-				password: password
-			}
+			data: newUser
 		}).then(function(response) {
 			console.log(response);
 			dfd.resolve(response.data);
@@ -41,7 +38,7 @@ App.service('AuthService', function($q, $http) {
 
 	this.getUser = function(userId){
 		var dfd = $q.defer();
-		$http.get("/api/getUserData/" + userId).then(function(data){
+		$http.get("/api/getLoggedInUser").then(function(data){
 			dfd.resolve(data.data)
 		}, function(err){
 			dfd.reject(err)

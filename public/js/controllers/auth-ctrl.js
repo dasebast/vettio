@@ -5,7 +5,7 @@ App.controller('AuthCtrl', function($scope, $location, AuthService) {
 	$scope.test = 'yolo';
 
 	$scope.clickLogin = function() {
-		AuthService.login($scope.email, $scope.password).then(function() {
+		AuthService.login($scope.newUser).then(function() {
 			$location.path('/dash');
 		}); //.catch(function(err) {
 			//$scope.loginError = true;
@@ -13,7 +13,7 @@ App.controller('AuthCtrl', function($scope, $location, AuthService) {
 	};
 
 	$scope.clickRegister = function() {
-		AuthService.register($scope.email, $scope.password).then(function() {
+		AuthService.register($scope.newUser).then(function() {
 			$location.path('/dash');
 
 			// console.log(response + "ctrl");
