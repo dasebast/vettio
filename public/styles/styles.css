@@ -1,4 +1,13 @@
+body {
+	background-color: #3498db;
+}
+
 .pin-div {
 	width: auto;
 	height: 100px;
+}
+
+.form-size {
+	width: 400px;
+	margin-left: 100px
 }

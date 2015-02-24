@@ -15,7 +15,7 @@ var pinSchema = new Schema({
 	dateUpdated: {type: Date, default: Date.now},
 	active: {type: Boolean, default: true}
 });
-
+  
 module.exports = Mongoose.model('Pin', pinSchema);
 
 // {

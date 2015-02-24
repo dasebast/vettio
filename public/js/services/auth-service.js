@@ -14,6 +14,7 @@ App.service('AuthService', function($q, $http) {
 		}).then(function(response) {
 			dfd.resolve(response.data);
 		}).catch(function(err) {
+			alert("Error logging in.");
 			console.log("Error logging in.");
 			dfd.reject(err);
 		});
@@ -36,7 +37,7 @@ App.service('AuthService', function($q, $http) {
 	};
 
 
-	this.getUser = function(userId){
+	this.getLoggedInUser = function(userId){
 		var dfd = $q.defer();
 		$http.get("/api/getLoggedInUser").then(function(data){
 			dfd.resolve(data.data)

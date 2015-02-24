@@ -15,10 +15,15 @@ App.config(function($routeProvider) {
 		// 	}
 		// }
 	})
-	// .when('/:username', {
-	// 	templateUrl: 'templates/public-view',
-	// 	controller: 'PublicCtrl'
-	// })
+	.when('/:poop', {
+		templateUrl: 'templates/public-view.html',
+		controller: 'PublicCtrl',
+		resolve: {
+			publicPins: function(PublicService, $route) {
+				return PublicService.getUserPublic($route.current.params.poop);
+			}
+		}
+	})
 	// when('/:username', {
 					// check nbaroutes
 	// })

@@ -2,7 +2,6 @@ var App = angular.module('vettio');
 
 App.controller('AuthCtrl', function($scope, $location, AuthService) {
 	
-	$scope.test = 'yolo';
 
 	$scope.clickLogin = function() {
 		AuthService.login($scope.newUser).then(function() {

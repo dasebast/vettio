@@ -8,11 +8,19 @@ var userSchema = new Schema({
 	email: {type: String, required: true, unique: true},
 	password: {type: String, required: true},
 	username: {type: String, required: true, unique: true},
-	dateCreated: {type: Date, default: Date.now}
-	// socialLinks: [{}]
-	// socialGit: 
-	// socialFacebook:
-	// socialTwitter:	
+	dateCreated: {type: Date, default: Date.now},
+	socialPersonal: {type: String},
+	socialFacebook: {type: String},
+	socialTwitter: {type: String},
+	socialInstagram: {type: String},
+	socialPinterest: {type: String},
+	socialGithub: {type: String},
+	socialVine: {type: String},
+	socialTumblr: {type: String},
+	socialGit: {type: String},
+	socialMedium: {type: String},
+	socialGoogle: {type: String}
+	
 });
 
 userSchema.pre('save', function(next) {

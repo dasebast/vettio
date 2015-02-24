@@ -1,0 +1,20 @@
+<h2>i am on the public view</h2>
+
+{{test}}
+
+<button class="btn btn-danger" ng-click="getUserPublic()">get user public info</button>
+
+<!-- $location.path('/#/' + $scope.search) -->
+
+<div>
+{{userPublic.user.username}}
+</div>
+
+
+
+<!-- if im on the public view,
+to populate this i need to find the searched user by id
+then i need to grab their user object and place it into 
+the html of their user page @ domain.com/username
+
+url parameter -> find in database by username ->  -->

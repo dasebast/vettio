@@ -8,7 +8,7 @@ module.exports = {
 		});
 	},
 	create: function(req, res) {
-		console.log("hello10");
+		// console.log("hello10");
 		req.body.owner = req.user._id;
 		var newPin = new Pin(req.body);
 		// newPin.owner = req.user._id;

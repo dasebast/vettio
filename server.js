@@ -10,6 +10,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var User = require('./server-assets/models/user');
 var Pin = require('./server-assets/models/pin');
 var PinCtrl = require('./server-assets/controllers/pin-ctrl');
+var UserCtrl = require('./server-assets/controllers/user-ctrl');
 
 // ============================ CONTROLLERS ===========================
 
@@ -97,6 +98,10 @@ App.get("/api/getLoggedInUser/", isAuthed, function(req, res){
 App.get("/api/pins", PinCtrl.list);
 App.post("/api/pins", PinCtrl.create); // Wait till frontend done for isAuthed **************
 // App.put("/api/pins/:id", isAuthed, PinCtrl.edit);
+
+App.get("/api/:username", UserCtrl.userPublic);
+
+
 
 
 
