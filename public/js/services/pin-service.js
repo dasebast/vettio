@@ -14,10 +14,10 @@ App.service('pinService', function($http, $q) {
 	// };	
 
 		this.getPins = function() {
-			console.log("00001");
+			// console.log("00001");
 			var dfd = $q.defer();
 			$http.get('/api/pins').then(function(response) {
-				console.log("00002");			
+				// console.log("00002");			
 				dfd.resolve(response.data.reverse());
 			}, function(err) {
 				console.log(err);

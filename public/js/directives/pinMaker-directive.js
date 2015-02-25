@@ -5,10 +5,10 @@ App.directive('pinMaker', function() {
 		restrict: 'E',
 		scope: {
 			pins: '=', //bind to variable on parent controller, its dynamic, changes
+			// getUserPublic: '&',
 			getPins: '&'
 		},
 		templateUrl: "templates/pinMaker-directive-view.html"
-
 	}
 });
 

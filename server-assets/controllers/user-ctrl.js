@@ -8,16 +8,16 @@ module.exports = {
 			console.log(user[0].username);
 			responseObject.user = {
 				username: user[0].username,
-				socialPersonal: user.socialPersonal,
-				socialFacebook: user.socialFacebook,
-				socialTwitter: user.socialTwitter,
-				socialInstagram: user.socialInstagram,
-				socialPinterest: user.socialPinterest,
-				socialGithub: user.socialGithub,
-				socialVine: user.socialVine,
-				socialTumblr: user.socialTumblr,
-				socialMedium: user.socialMedium,
-				socialGoogle: user.socialGoogle
+				socialPersonal: user[0].socialPersonal,
+				socialFacebook: user[0].socialFacebook,
+				socialTwitter: user[0].socialTwitter,
+				socialInstagram: user[0].socialInstagram,
+				socialPinterest: user[0].socialPinterest,
+				socialGithub: user[0].socialGithub,
+				socialVine: user[0].socialVine,
+				socialTumblr: user[0].socialTumblr,
+				socialMedium: user[0].socialMedium,
+				socialGoogle: user[0].socialGoogle
 			}
 			Pin.find({owner: user[0]._id}).exec().then(function(pins){
 				responseObject.pins = pins;

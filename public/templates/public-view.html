@@ -2,13 +2,42 @@
 
 {{test}}
 
-<button class="btn btn-danger" ng-click="getUserPublic()">get user public info</button>
+<!-- <button class="btn btn-danger" ng-click="getUserPublic()">get user public info</button> -->
 
 <!-- $location.path('/#/' + $scope.search) -->
 
 <div>
 {{userPublic.user.username}}
 </div>
+<!-- <div ng-repeat>
+</div> -->
+
+
+<div ng-repeat="pins in userPublic">
+	<div ng-repeat="(key, value) in pins">
+		{{value.name}}
+		<img ng-src="{{value.image}}" class="pin-div">
+		{{value.blurb}}
+		<!-- <p> name: {{pins[0].name}}</p> -->
+		
+	</div>
+</div>
+
+<!-- <div> -->
+
+
+	<!-- <button class="btn btn-danger" ng-click="getUserPublic()">get user info</button> -->
+
+	<!-- <div class="container" ng-repeat="pin in userPublic"> -->
+		<!-- <h4>Name: {{pin.pins.name}}</h4> -->
+		<!-- <h4><img ng-src="{{pin.image}}" class="pin-div"></h4> -->
+		<!-- <h4>Blurb: {{pin.blurb}}</h4> -->
+		<!-- <h4>Rating: {{pin.rating}}</h4> -->
+	<!-- </div> -->
+
+
+<!-- </div> -->
+
 
 
 
