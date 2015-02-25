@@ -1,13 +1,13 @@
 
 
 {{dash}}
-
+<button class="btn btn-success" ng-click="getPins()">get pins</button>
 
 <!-- <button ng-click=makePin()>make a pin</button> -->
 
 <!-- <div ng-repeat="pin in pins">{{pin.image}}</div> -->
 
-<pin-maker pins='pins' get-pins="getPins()"></pin-maker>
+<pin-maker ng-repeat="pin in pins" pin='pin' get-pins="getPins()"></pin-maker>
 
 
 <!-- <button class="btn btn-info">make new pin</button> -->

@@ -4,9 +4,8 @@ App.directive('pinMaker', function() {
 	return {
 		restrict: 'E',
 		scope: {
-			pins: '=', //bind to variable on parent controller, its dynamic, changes
+			pin: '=', //bind to variable on parent controller, its dynamic, changes
 			// getUserPublic: '&',
-			getPins: '&'
 		},
 		templateUrl: "templates/pinMaker-directive-view.html"
 	}

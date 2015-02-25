@@ -13,15 +13,19 @@
 </div> -->
 
 
-<div ng-repeat="pins in userPublic">
+
+
+<pin-maker ng-repeat="pin in userPublic" pin="pin"> </pin-maker>
+
+<!-- <div ng-repeat="pins in userPublic">
 	<div ng-repeat="(key, value) in pins">
 		{{value.name}}
 		<img ng-src="{{value.image}}" class="pin-div">
 		{{value.blurb}}
-		<!-- <p> name: {{pins[0].name}}</p> -->
+		<p> name: {{pins[0].name}}</p> -->
 		
-	</div>
-</div>
+	<!-- </div> -->
+<!-- </div> -->
 
 <!-- <div> -->
 
