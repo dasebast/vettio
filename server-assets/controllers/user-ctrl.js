@@ -21,7 +21,7 @@ module.exports = {
 			}
 			Pin.find({owner: user[0]._id}).exec().then(function(pins){
 				responseObject.pins = pins;
-				console.log(responseObject);
+				// console.log(responseObject);
 				res.json(responseObject)
 			}, function(error){
 				res.status(500).json(error)
