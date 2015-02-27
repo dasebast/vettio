@@ -8,6 +8,9 @@ var userSchema = new Schema({
 	email: {type: String, required: true, unique: true},
 	password: {type: String, required: true},
 	username: {type: String, required: true, unique: true},
+	description: {type: String},
+	avatar: {type: String},
+	banner: {type: String},
 	dateCreated: {type: Date, default: Date.now},
 	socialPersonal: {type: String},
 	socialFacebook: {type: String},
@@ -20,7 +23,6 @@ var userSchema = new Schema({
 	socialGit: {type: String},
 	socialMedium: {type: String},
 	socialGoogle: {type: String}
-	
 });
 
 userSchema.pre('save', function(next) {

@@ -1,30 +1,35 @@
-var App = angular.module('vettio', ["ngRoute"]);
+var App = angular.module('vettio', ["ui.router"]);
 
-App.config(function($routeProvider) {
-	$routeProvider
-	.when('/', {
-		templateUrl: 'templates/auth-view.html',
-		controller: 'AuthCtrl'
-	})
-	.when('/dash', {
-		templateUrl: 'templates/dash-view.html',
-		controller: 'DashCtrl'
-		// resolve: {
-		// 	user: function($route, AuthService){
-		// 		return AuthService.getUser($route.current.params.id)
-		// 	}
-		// }
-	})
-	.when('/:username', {
-		templateUrl: 'templates/public-view.html',
-		controller: 'PublicCtrl',
-		resolve: {
-			publicPins: function(PublicService, $route) {
-				return PublicService.getUserPublic($route.current.params.username);
+App.config(function($stateProvider, $urlRouterProvider) {
+	
+	$urlRouterProvider.otherwise('/');
+
+	$stateProvider
+		.state('auth', {
+			url: '/',
+			templateUrl: 'templates/auth-view.html',
+			controller: 'AuthCtrl'
+		})
+		.state('dash', {
+			url: '/dash',
+			templateUrl: 'templates/dash-view.html',
+			controller: 'DashCtrl'
+			// resolve: {
+			// 	user: function($route, AuthService){
+			// 		return AuthService.getUser($route.current.params.id)
+			// 	}
+			// }
+		})
+		.state('username', {
+			url: '/:username',
+			templateUrl: 'templates/public-view.html',
+			controller: 'PublicCtrl',
+			resolve: {
+				publicPins: function(PublicService, $stateParams) {
+					return PublicService.getUserPublic($stateParams.username);
+				}
 			}
-		}
-	})
-	.otherwise('/');
+		})
 
 
 });

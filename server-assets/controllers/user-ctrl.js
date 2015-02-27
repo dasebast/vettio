@@ -5,9 +5,13 @@ module.exports = {
 	userPublic: function(req, res) {
 		var responseObject = {};
 		User.find({username: req.params.username}).exec().then(function(user){
-			console.log(user[0].username);
+			// console.log(user[0].username);
 			responseObject.user = {
 				username: user[0].username,
+				description: user[0].description,
+				avatar: user[0].avatar,
+				banner: user[0].banner,
+				dateCreated: user[0].dateCreated,
 				socialPersonal: user[0].socialPersonal,
 				socialFacebook: user[0].socialFacebook,
 				socialTwitter: user[0].socialTwitter,

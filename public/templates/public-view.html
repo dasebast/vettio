@@ -1,53 +1,21 @@
+<div class="container">
 <h2>i am on the public view</h2>
-
 {{test}}
 
-<!-- <button class="btn btn-danger" ng-click="getUserPublic()">get user public info</button> -->
-
-<!-- $location.path('/#/' + $scope.search) -->
 
 <div>
 {{userPublic.user.username}}
 </div>
-<!-- <div ng-repeat>
-</div> -->
 
 
+<!-- <user-directive user="whoever" is-own-profile="false">
+username
+bio						make a single directive for public & dash
+userpicture -->
+ 
 
-
-<pin-maker ng-repeat="pin in userPublic.pins" pin="pin"></pin-maker>
-
-<!-- <div ng-repeat="pins in userPublic">
-	<div ng-repeat="(key, value) in pins">
-		{{value.name}}
-		<img ng-src="{{value.image}}" class="pin-div">
-		{{value.blurb}}
-		<p> name: {{pins[0].name}}</p> -->
-		
-	<!-- </div> -->
-<!-- </div> -->
-
-<!-- <div> -->
-
-
-	<!-- <button class="btn btn-danger" ng-click="getUserPublic()">get user info</button> -->
-
-	<!-- <div class="container" ng-repeat="pin in userPublic"> -->
-		<!-- <h4>Name: {{pin.pins.name}}</h4> -->
-		<!-- <h4><img ng-src="{{pin.image}}" class="pin-div"></h4> -->
-		<!-- <h4>Blurb: {{pin.blurb}}</h4> -->
-		<!-- <h4>Rating: {{pin.rating}}</h4> -->
-	<!-- </div> -->
-
+	<pin-maker ng-repeat="pin in userPublic.pins" pin="pin"></pin-maker>
 
 <!-- </div> -->
 
-
-
-
-<!-- if im on the public view,
-to populate this i need to find the searched user by id
-then i need to grab their user object and place it into 
-the html of their user page @ domain.com/username
-
-url parameter -> find in database by username ->  -->
+</div> <!-- END div container -->

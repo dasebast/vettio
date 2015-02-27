@@ -8,8 +8,10 @@ App.controller('DashCtrl', function($scope, $timeout, pinService) {
 	$scope.getPins = function() {
 		// console.log("pinssss");
 		pinService.getPins().then(function(res) {
+			console.log(res);
 			$scope.pins = res;
-			console.log($scope.pins.length);
+			// console.log($scope.pins.length);
+
 		});
 	};
 
