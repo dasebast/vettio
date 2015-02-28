@@ -1,13 +1,13 @@
 var App = angular.module('vettio');
 
-App.directive('pinMaker', function() {
+App.directive('pinBox', function() {
 	return {
 		restrict: 'E',
 		scope: {
 			pin: '=', //bind to variable on parent controller, its dynamic, changes
 			// getUserPublic: '&',
 		},
-		templateUrl: "templates/pinMaker-directive-view.html"
+		templateUrl: "templates/pinBox-directive-view.html"
 	}
 });
 

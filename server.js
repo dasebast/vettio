@@ -9,10 +9,10 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('./server-assets/models/user');
 var Pin = require('./server-assets/models/pin');
-var PinCtrl = require('./server-assets/controllers/pin-ctrl');
-var UserCtrl = require('./server-assets/controllers/user-ctrl');
 
 // ============================ CONTROLLERS ===========================
+var PinCtrl = require('./server-assets/controllers/pin-ctrl');
+var UserCtrl = require('./server-assets/controllers/user-ctrl');
 
 
 

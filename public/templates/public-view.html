@@ -3,6 +3,9 @@
 {{test}}
 
 
+<pin-container></pin-container>
+
+
 <div>
 {{userPublic.user.username}}
 </div>
@@ -14,7 +17,8 @@ bio						make a single directive for public & dash
 userpicture -->
  
 
-	<pin-maker ng-repeat="pin in userPublic.pins" pin="pin"></pin-maker>
+	<pin-container pins="userPublic.pins"></pin-container>
+	<!-- <pin-box ng-repeat="pin in userPublic.pins" pin="pin"></pin-box> -->
 
 <!-- </div> -->
 
